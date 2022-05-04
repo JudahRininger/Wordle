@@ -8,9 +8,12 @@ namespace Wordle
     {
         public string SecretWord { get; set; }
         public int MaxGuesses { get; set; } = 100;
+        private List<string> PossibleGuesses { get; set; }
+        
 
         public WordleGame(string secretWord = "arise")
         {
+            PossibleGuesses = GeneratePossibleGuesses();
             SecretWord = secretWord;
 
         }

@@ -23,11 +23,11 @@ namespace Wordle
 
             int totalGuesses = 0;
 
-            var secretWords = new string[] { "crane", "trash", "about" };
+            var secretWords = new string[] { "crane", "trash", "about", "plain", "chase", "scene"};
 
             foreach (var secretWord in secretWords)
             {
-                var hBot = new HumanBot();
+                var hBot = new WordleBot();
 
                 Console.WriteLine("New Game!");
                 var game = new WordleGame(secretWord);
