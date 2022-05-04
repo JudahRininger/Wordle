@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Wordle
 {
@@ -6,16 +8,42 @@ namespace Wordle
     {
         static void Main(string[] args)
         {
-            var guessResult = new GuessResult("arise");
+            //var guessResult = new GuessResult("arise");
 
-            Console.WriteLine(guessResult);
+            //Console.WriteLine(guessResult);
 
-            //var bot = new BrycesSweetBot();
+            //string filePath = "../../../data/english_words_full.txt";
 
-            //var game = new WordleGame("saber");
+            //var bot = new WordleGame();
+            //List<string> words = bot.GeneratePossibleGuesses();
+            //foreach (string word in words)
+            //{
+            //    Console.WriteLine(word);
+            //}
 
-            //int guesses = game.Play(bot);
+            int totalGuesses = 0;
+
+            var secretWords = new string[] { "crane", "trash", "about" };
+
+            foreach (var secretWord in secretWords)
+            {
+                var hBot = new HumanBot();
+
+                Console.WriteLine("New Game!");
+                var game = new WordleGame(secretWord);
+
+                int guesses = game.Play(hBot);
+                Console.WriteLine("Gameover.");
+                Console.WriteLine($"Num Guesses: {guesses}");
+                Console.WriteLine();
+
+                totalGuesses += guesses;
+
+            }
+            //double averageGuesses = (double)totalGuesses / secretWords.Length;
+            //Console.WriteLine();
+            //Console.WriteLine($"Average Guesses: {averageGuesses}");
+
         }
     }
 }
-
